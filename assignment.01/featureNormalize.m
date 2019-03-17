@@ -27,14 +27,12 @@ sigma = zeros(1, size(X, 2));
 %       
 
 mu = mean(X);
-mu
 sigma = std(X);
-sigma
-X_norm = (X - ones(size(X))*diag(mu)) ./ ones(size(X))*diag(sigma);
-X_norm
+[r,c] = size(X);
 
-
-
+for i=1:r
+X_norm(i,:) = (X(i,:) - mu) ./ sigma;
+end
 
 
 % ============================================================
